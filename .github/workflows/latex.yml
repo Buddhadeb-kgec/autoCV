@@ -3,7 +3,7 @@ name: Build LaTeX Resume
 on:
   push:
     branches:
-      - main   # Run when you push to main branch
+      - main   # Runs workflow when you push to main branch
 
 jobs:
   build:
@@ -11,15 +11,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: resume.tex
+          root_file: cv.tex   # 👈 your LaTeX file name here
 
       - name: Upload PDF
         uses: actions/upload-artifact@v3
         with:
           name: Resume
-          path: resume.pdf
+          path: cv.pdf        # 👈 compiled output name
