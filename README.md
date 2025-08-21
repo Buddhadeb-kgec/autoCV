@@ -22,3 +22,6 @@ Advanced React.js, cloud deployment, and building AI models for practical applic
 
 📫 Connect with me:
 I love collaborating on innovative projects and contributing to open source. Check out my repositories and feel free to reach out!
+
+
+More Resumes : https://drive.google.com/drive/folders/1fliVAXHfp8k1JZyemJQNMzaSCQAulU90
