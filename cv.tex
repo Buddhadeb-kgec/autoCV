@@ -1,0 +1,461 @@
+% %-----------------------------------------------------------------------------------------------------------------------------------------------%
+% %	The MIT License (MIT)
+% %
+% %	Copyright (c) 2021 Jitin Nair
+% %
+% %	Permission is hereby granted, free of charge, to any person obtaining a copy
+% %	of this software and associated documentation files (the "Software"), to deal
+% %	in the Software without restriction, including without limitation the rights
+% %	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% %	copies of the Software, and to permit persons to whom the Software is
+% %	furnished to do so, subject to the following conditions:
+% %	
+% %	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% %	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% %	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% %	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% %	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% %	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+% %	THE SOFTWARE.
+% %	
+% %
+% %-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+% %----------------------------------------------------------------------------------------
+% %	DOCUMENT DEFINITION
+% %----------------------------------------------------------------------------------------
+
+% % article class because we want to fully customize the page and not use a cv template
+% \documentclass[a4paper,12pt]{article}
+
+% %----------------------------------------------------------------------------------------
+% %	FONT
+% %----------------------------------------------------------------------------------------
+
+% % % fontspec allows you to use TTF/OTF fonts directly
+% % \usepackage{fontspec}
+% % \defaultfontfeatures{Ligatures=TeX}
+
+% % % modified for ShareLaTeX use
+% % \setmainfont[
+% % SmallCapsFont = Fontin-SmallCaps.otf,
+% % BoldFont = Fontin-Bold.otf,
+% % ItalicFont = Fontin-Italic.otf
+% % ]
+% % {Fontin.otf}
+
+% %----------------------------------------------------------------------------------------
+% %	PACKAGES
+% %----------------------------------------------------------------------------------------
+% \usepackage{url}
+% \usepackage{parskip} 	
+
+% %other packages for formatting
+% \RequirePackage{color}
+% \RequirePackage{graphicx}
+% \usepackage[usenames,dvipsnames]{xcolor}
+% \usepackage[scale=0.9]{geometry}
+
+% %tabularx environment
+% \usepackage{tabularx}
+
+% %for lists within experience section
+% \usepackage{enumitem}
+
+% % centered version of 'X' col. type
+% \newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+% %to prevent spillover of tabular into next pages
+% \usepackage{supertabular}
+% \usepackage{tabularx}
+% \newlength{\fullcollw}
+% \setlength{\fullcollw}{0.47\textwidth}
+
+% %custom \section
+% \usepackage{titlesec}				
+% \usepackage{multicol}
+% \usepackage{multirow}
+
+% %CV Sections inspired by: 
+% %http://stefano.italians.nl/archives/26
+% \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+% \titlespacing{\section}{0pt}{10pt}{10pt}
+
+% %for publications
+% \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+% %Setup hyperref package, and colours for links
+% \usepackage[unicode, draft=false]{hyperref}
+% \definecolor{linkcolour}{rgb}{0,0.2,0.6}
+% \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+% \addbibresource{citations.bib}
+% \setlength\bibitemsep{1em}
+
+% %for social icons
+% \usepackage{fontawesome5}
+
+% %debug page outer frames
+% %\usepackage{showframe}
+
+
+% % job listing environments
+% \newenvironment{jobshort}[2]
+%     {
+%     \begin{tabularx}{\linewidth}{@{}l X r@{}}
+%     \textbf{#1} & \hfill &  #2 \\[3.75pt]
+%     \end{tabularx}
+%     }
+%     {
+%     }
+
+% \newenvironment{joblong}[2]
+%     {
+%     \begin{tabularx}{\linewidth}{@{}l X r@{}}
+%     \textbf{#1} & \hfill &  #2 \\[3.75pt]
+%     \end{tabularx}
+%     \begin{minipage}[t]{\linewidth}
+%     \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+%     }
+%     {
+%     \end{itemize}
+%     \end{minipage}    
+%     }
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	BEGIN DOCUMENT
+% %----------------------------------------------------------------------------------------
+% \begin{document}
+
+% % non-numbered pages
+% \pagestyle{empty} 
+
+% %----------------------------------------------------------------------------------------
+% %	TITLE
+% %----------------------------------------------------------------------------------------
+
+% % \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% % \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% % \raisebox{-0.05\height}\faGithub\ username \ | \
+% % \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% % \end{tabularx}
+
+% \begin{tabularx}{\linewidth}{@{} C @{}}
+% \Huge{Buddhadeb Charmakar} \\[7.5pt]
+% \href{https://github.com/Buddhadeb-kgec?tab=repositories}{\raisebox{-0.05\height}\faGithub\ buddhadeb-kgec} \ $|$ \ 
+% \href{https://www.linkedin.com/in/buddhadeb-charmakar/}{\raisebox{-0.05\height}\faLinkedin\ buddhadeb-charmakar} \ $|$ \ 
+% \href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+% \href{mailto:buddhadeb.charmakar@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ buddhadeb.charmakar@gmail.com} \ $|$ \ 
+% \href{tel:+919382164574}{\raisebox{-0.05\height}\faMobile \ +91 9382164574} \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% % EXPERIENCE SECTIONS
+% %----------------------------------------------------------------------------------------
+
+% %Interests/ Keywords/ Summary
+% \section{About Me}
+% This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+
+% %Experience
+% \section{Work Experience}
+
+% \begin{jobshort}{Designation}{Jan 2021 - present}
+% long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width
+% \end{jobshort}
+
+
+% \begin{joblong}{Designation}{Mar 2019 - Jan 2021}
+% \item long long line of blah blah that will wrap when the table fills the column width
+% \item again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah. again, long long line of blah blah that will wrap when the table fills the column width but this time even more long long line of blah blah
+% \end{joblong}
+  
+% %Projects
+% \section{Projects}
+
+% \begin{tabularx}{\linewidth}{ @{}l r@{} }
+% \textbf{Some Project} & \hfill \href{https://some-link.com}{Link to Demo} \\[3.75pt]
+% \multicolumn{2}{@{}X@{}}{long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width long long line of blah blah that will wrap when the table fills the column width}  \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	EDUCATION
+% %----------------------------------------------------------------------------------------
+% \section{Education}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}	
+% 2030 - present & PhD (Subject) at \textbf{University} \hfill \normalsize (GPA: 4.0/4.0) \\
+
+% 2023 - 2027 & Bachelor's Degree at \textbf{College} \hfill (GPA: 4.0/4.0) \\ 
+
+% 2022 & Class 12th Some Board \hfill  (Grades) \\
+
+% 2021 & Class 10th Some Board \hfill  (Grades) \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	PUBLICATIONS
+% %----------------------------------------------------------------------------------------
+% \section{Publications}
+% \begin{refsection}[citations.bib]
+% \nocite{*}
+% \printbibliography[heading=none]
+% \end{refsection}
+
+% %----------------------------------------------------------------------------------------
+% %	SKILLS
+% %----------------------------------------------------------------------------------------
+% \section{Skills}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}
+% Some Skills &  \normalsize{This, That, Some of this and that etc.}\\
+% Some More Skills  &  \normalsize{Also some more of this, Some more that, And some of this and that etc.}\\  
+% \end{tabularx}
+
+% \vfill
+% \center{\footnotesize Last updated: \today}
+
+% \end{document}
+
+
+% \documentclass[a4paper,12pt]{article}
+
+% \usepackage{url}
+% \usepackage{parskip} 	
+% \RequirePackage{color}
+% \RequirePackage{graphicx}
+% \usepackage[usenames,dvipsnames]{xcolor}
+% \usepackage[scale=0.9]{geometry}
+% \usepackage{tabularx}
+% \usepackage{enumitem}
+% \newcolumntype{C}{>{\centering\arraybackslash}X} 
+% \usepackage{supertabular}
+% \newlength{\fullcollw}
+% \setlength{\fullcollw}{0.47\textwidth}
+% \usepackage{titlesec}				
+% \usepackage{multicol}
+% \usepackage{multirow}
+% \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+% \titlespacing{\section}{0pt}{10pt}{10pt}
+% \usepackage[unicode, draft=false]{hyperref}
+% \definecolor{linkcolour}{rgb}{0,0.2,0.6}
+% \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+% \usepackage{fontawesome5}
+
+% \newenvironment{jobshort}[2]{
+%   \begin{tabularx}{\linewidth}{@{}l X r@{}}
+%   \textbf{#1} & \hfill &  #2 \\[3.75pt]
+%   \end{tabularx}
+% }{}
+
+% \newenvironment{joblong}[2]{
+%   \begin{tabularx}{\linewidth}{@{}l X r@{}}
+%   \textbf{#1} & \hfill &  #2 \\[3.75pt]
+%   \end{tabularx}
+%   \begin{minipage}[t]{\linewidth}
+%   \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+% }{
+%   \end{itemize}
+%   \end{minipage}    
+% }
+
+% \begin{document}
+% \pagestyle{empty} 
+
+% %----------------------------------------------------------------------------------------
+% %	TITLE
+% %----------------------------------------------------------------------------------------
+% \begin{tabularx}{\linewidth}{@{} C @{}}
+% \Huge{Buddhadeb Charmakar} \\[7.5pt]
+% \href{https://github.com/Buddhadeb-kgec}{\raisebox{-0.05\height}\faGithub\ buddhadeb-kgec} \ $|$ \ 
+% \href{https://www.linkedin.com/in/buddhadeb-charmakar/}{\raisebox{-0.05\height}\faLinkedin\ buddhadeb-charmakar} \ $|$ \ 
+% \href{mailto:buddhadeb.charmakar@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ buddhadeb.charmakar@gmail.com} \ $|$ \ 
+% \href{tel:+919382164574}{\raisebox{-0.05\height}\faMobile \ +91 9382164574} \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	ABOUT ME
+% %----------------------------------------------------------------------------------------
+% \section{About Me}
+% Full Stack Developer and Computer Science student with experience in AI/ML, Data Analytics, and Cloud. Skilled at building scalable applications and leading projects, with a strong foundation in problem-solving, teamwork, and Generative AI.
+
+% %----------------------------------------------------------------------------------------
+% %	WORK EXPERIENCE
+% %----------------------------------------------------------------------------------------
+% \section{Work Experience}
+
+% \begin{joblong}{AI/ML Intern, YBI Foundation (Remote)}{Sept 2024 – Oct 2024}
+% \item Built a Movie Recommendation System using collaborative and content-based filtering.
+% \item Responsible for preprocessing, model training, and building a user-friendly interface.
+% \item Skills: Python, Machine Learning, NumPy.
+% \end{joblong}
+
+% \begin{joblong}{Social Work Intern, Marpu Foundation (Remote)}{Sept 2024 – Oct 2024}
+% \item Contributed to fundraising and donor engagement campaigns.
+% \item Created awareness content and organized outreach activities.
+% \item Skills: Communication, Social Media Marketing, Awareness of Media Agendas.
+% \end{joblong}
+
+% %----------------------------------------------------------------------------------------
+% %	PROJECTS
+% %----------------------------------------------------------------------------------------
+% \section{Projects}
+
+% \begin{tabularx}{\linewidth}{ @{}l r@{} }
+% \textbf{EcoTrack (SIH 2024 Finalist)} & \hfill \href{https://github.com/Buddhadeb-kgec/Eco_TrackMine}{GitHub} \\[3.75pt]
+% \multicolumn{2}{@{}X@{}}{Web solution for coal mines to monitor and reduce carbon emissions. Features include emission input forms, dashboards, analytics, recommendations, role-based login, and PDF reporting. Skills: PHP, React.js, MySQL.} \\
+% \end{tabularx}
+
+% \begin{tabularx}{\linewidth}{ @{}l r@{} }
+% \textbf{Client Management System} & \hfill \href{https://github.com/Buddhadeb-kgec/client_Management_with_paymet.github.io}{GitHub} \\[3.75pt]
+% \multicolumn{2}{@{}X@{}}{Educational platform for managing students, scheduling sessions, and generating reports. Skills: PHP, MySQL, Bootstrap.} \\
+% \end{tabularx}
+
+% \begin{tabularx}{\linewidth}{ @{}l r@{} }
+% \textbf{MyEcom} & \hfill \href{https://github.com/Buddhadeb-kgec}{GitHub} \\[3.75pt]
+% \multicolumn{2}{@{}X@{}}{E-commerce platform with product listings, cart, order management, and authentication. Skills: Node.js, Express.js, MongoDB, HTML, CSS, JavaScript.} \\
+% \end{tabularx}
+
+% \begin{tabularx}{\linewidth}{ @{}l r@{} }
+% \textbf{GenAI Career Guidance Platform} & \hfill \href{https://github.com/Buddhadeb-kgec/genai-career-guidance-backend}{GitHub} \\[3.75pt]
+% \multicolumn{2}{@{}X@{}}{AI-powered web app providing career guidance with a chatbot interface and resume builder. Skills: Python Flask, APIs, JavaScript, HTML, CSS.} \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	EDUCATION
+% %----------------------------------------------------------------------------------------
+% \section{Education}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}	
+% 2022 – 2026 & \textbf{B.Tech in Computer Science and Engineering}, Kalyani Government Engineering College, West Bengal \hfill (CGPA: 7.2) \\
+% 2022 & Class XII, Napara High School \hfill (CGPA: 9.2) \\
+% 2020 & Class X, Napara High School \hfill (CGPA: 7.5) \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	SKILLS
+% %----------------------------------------------------------------------------------------
+% \section{Skills}
+% \begin{tabularx}{\linewidth}{@{}l X@{}}
+% Programming & Java, Python, C, JavaScript \\
+% Web Development & React.js, Node.js, MongoDB, MySQL, HTML, CSS, Bootstrap, PHP \\
+% Data \& Analytics & SQL, Power BI, Excel, Data Visualization \\
+% Cloud \& AI & AWS, Generative AI, Machine Learning, Flask, NumPy \\
+% Other & Project Management, Git/GitHub, Communication, Leadership \\
+% \end{tabularx}
+
+% %----------------------------------------------------------------------------------------
+% %	CERTIFICATIONS
+% %----------------------------------------------------------------------------------------
+% \section{Certifications \& Courses}
+% Web Development (Internshala, 2024) \\
+% Internship \& Job Preparation (Internshala, 2024) \\
+% Mastering Power BI (2025) \\
+% AWS (Certification in Progress) \\
+
+% %----------------------------------------------------------------------------------------
+% %	ACHIEVEMENTS
+% %----------------------------------------------------------------------------------------
+% \section{Achievements}
+% Finalist, Smart India Hackathon 2024 (Team MedicoTech). \\
+% Completed 30-day AI/ML Internship at YBI Foundation. \\
+% Local Guide on Google Maps with active contributions. \\
+
+% %----------------------------------------------------------------------------------------
+% %	POSITIONS
+% %----------------------------------------------------------------------------------------
+% \section{Positions of Responsibility}
+% \textbf{Member, KeyGEnCoders (College Coding Club)} \\
+% - Mentored juniors in C, Python, and Web Development. \\
+% - Helped organize coding contests and technical workshops. \\
+% - Played a key role in planning events for collaborative learning. \\
+
+% \vfill
+% \center{\footnotesize Last updated: \today}
+
+% \end{document}
+
+\documentclass[10pt,a4paper]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+%---------- COLORS ----------
+\definecolor{darkblue}{RGB}{0,70,140}
+\hypersetup{colorlinks=true,urlcolor=darkblue}
+
+%---------- SECTION FORMATTING ----------
+\titleformat{\section}{
+  \large\bfseries\color{darkblue}
+}{}{0em}{}[\titlerule]
+
+%---------- DOCUMENT ----------
+\begin{document}
+
+%========== HEADER ==========
+\begin{center}
+    {\Huge \textbf{Buddhadeb Charmakar}} \\[6pt]
+    Full Stack Developer \,|\, Data Analyst \,|\, Project Manager \\[4pt]
+    \href{mailto:buddhadeb.charmakar@gmail.com}{buddhadeb.charmakar@gmail.com} \,|\, 
+    +91 9382164574 \,|\, 
+    \href{https://www.linkedin.com/in/buddhadeb-charmakar}{LinkedIn} \,|\, 
+    \href{https://github.com/Buddhadeb-kgec}{GitHub}
+\end{center}
+
+%========== ABOUT ==========
+\section*{About Me}
+This CV can also be automatically compiled and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+
+%========== SKILLS ==========
+\section*{Skills}
+\textbf{Programming:} Java, Python, C, JavaScript \\
+\textbf{Web Development:} React.js, Node.js, MongoDB, MySQL, PHP, HTML, CSS, Bootstrap \\
+\textbf{Data \& Analytics:} SQL, Power BI, Excel, Data Visualization \\
+\textbf{Cloud \& AI:} AWS, Generative AI, Machine Learning, Flask, NumPy \\
+\textbf{Other:} Project Management, Git/GitHub, Communication, Leadership
+
+%========== EDUCATION ==========
+\section*{Education}
+\textbf{B.Tech, Computer Science \& Engineering} — Kalyani Government Engineering College \hfill 2022–2026 \\
+CGPA: 7.2  
+
+Class X (CGPA: 7.5) \& Class XII (CGPA: 9.2) — Napara High School \hfill 2010–2022
+
+%========== EXPERIENCE ==========
+\section*{Experience}
+\textbf{AI/ML Intern — YBI Foundation (Remote)} \hfill Sept 2024 – Oct 2024 \\
+- Built a movie recommender system using collaborative + content-based filtering.  
+- Developed preprocessing pipelines, trained ML models, and built UI.  
+
+\textbf{Social Work Intern — Marpu Foundation (Remote)} \hfill Sept 2024 – Oct 2024 \\
+- Supported fundraising campaigns and donor outreach.  
+- Created awareness content and improved engagement via social media.  
+
+\section*{Projects}
+- \textbf{EcoTrack (SIH 2024 Finalist)} — Web solution for coal mines to monitor and reduce emissions. (PHP, React.js, MySQL) \href{https://github.com/Buddhadeb-kgec/Eco_TrackMine}{GitHub Link}  
+
+- \textbf{GenAI Career Guidance Platform} — AI-powered chatbot for career guidance and resume building. (Flask, APIs, JS, HTML/CSS) \href{https://github.com/Buddhadeb-kgec/genai-career-guidance-backend}{GitHub Link}  
+
+- \textbf{Client Management System} — Student/career data management with scheduling and reports. (PHP, MySQL, Bootstrap) \href{https://github.com/Buddhadeb-kgec/client_Management_with_paymet.github.io}{GitHub Link}  
+
+\vspace{4pt}
+\textit{More projects available \href{https://github.com/Buddhadeb-kgec?tab=repositories}{here}.}
+
+
+%========== CERTIFICATIONS ==========
+\section*{Certifications}
+Web Development (Internshala, 2024) \,|\, Internship \& Job Preparation (Internshala, 2024) \,|\, Mastering Power BI (2025) \,|\, AWS (In Progress) , \vspace{4pt}
+\textit{Additional certificates available \href{https://drive.google.com/file/d/1o1opHWAtAEBYSnjugGerVGA0wlP631wh/view?usp=drive_link}{here}.}
+
+%========== ACHIEVEMENTS ==========
+\section*{Achievements}
+- Finalist, Smart India Hackathon 2024 (Team MedicoTech).  
+- Completed 30-day AI/ML Internship at YBI Foundation.  
+- Active Google Maps Local Guide with detailed contributions.  
+
+%========== RESPONSIBILITIES ==========
+\section*{Positions of Responsibility}
+\textbf{Member, KeyGEnCoders (College Coding Club)} — Mentored juniors, organized coding contests and technical workshops, and contributed to inter-college events.  
+
+\end{document}
